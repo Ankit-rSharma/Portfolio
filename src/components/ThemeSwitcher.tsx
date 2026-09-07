@@ -9,25 +9,23 @@ const ThemeSwitcher: React.FC = () => {
 
   const themes: { id: ThemeLayout; icon: React.ReactNode; label: string }[] = [
     { id: 'terminal', icon: <Terminal size={18} />, label: 'Terminal' },
-    { id: 'canvas', icon: <Network size={18} />, label: 'Architecture' },
+    { id: 'canvas', icon: <Network size={18} />, label: 'System Canvas' },
     { id: 'minimal', icon: <FileText size={18} />, label: 'Minimal Doc' },
   ];
 
   return (
-    <div className="theme-switcher-container">
-      <div className="theme-switcher">
-        {themes.map((theme) => (
-          <button
-            key={theme.id}
-            className={`theme-btn ${layoutTheme === theme.id ? 'active' : ''}`}
-            onClick={() => setLayoutTheme(theme.id)}
-            title={`Switch to ${theme.label} view`}
-          >
-            {theme.icon}
-            <span className="theme-label">{theme.label}</span>
-          </button>
-        ))}
-      </div>
+    <div className="theme-switcher">
+      {themes.map((theme) => (
+        <button
+          key={theme.id}
+          className={`theme-btn ${layoutTheme === theme.id ? 'active' : ''}`}
+          onClick={() => setLayoutTheme(theme.id)}
+          title={`Switch to ${theme.label} view`}
+        >
+          {theme.icon}
+          <span className="theme-label">{theme.label}</span>
+        </button>
+      ))}
     </div>
   );
 };

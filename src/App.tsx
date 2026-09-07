@@ -1,6 +1,6 @@
 import type { FC } from 'react';
 import { ThemeProvider, useTheme } from './context/ThemeContext';
-import ThemeSwitcher from './components/ThemeSwitcher';
+import { TabProvider } from './context/TabContext';
 import TerminalLayout from './layouts/TerminalLayout';
 import CanvasLayout from './layouts/CanvasLayout';
 import MinimalDocLayout from './layouts/MinimalDocLayout';
@@ -13,7 +13,6 @@ const PortfolioRenderer: FC = () => {
       {layoutTheme === 'terminal' && <TerminalLayout />}
       {layoutTheme === 'canvas' && <CanvasLayout />}
       {layoutTheme === 'minimal' && <MinimalDocLayout />}
-      <ThemeSwitcher />
     </>
   );
 };
@@ -21,7 +20,9 @@ const PortfolioRenderer: FC = () => {
 function App() {
   return (
     <ThemeProvider>
-      <PortfolioRenderer />
+      <TabProvider>
+        <PortfolioRenderer />
+      </TabProvider>
     </ThemeProvider>
   );
 }

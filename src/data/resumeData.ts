@@ -24,6 +24,22 @@ export interface Project {
   highlights: string[];
 }
 
+export interface ArchitectureNode {
+  id: string;
+  name: string;
+  category: 'gateway' | 'service' | 'streaming' | 'cache' | 'database' | 'observability';
+  protocol: string;
+  throughput: string;
+  p99Latency: string;
+  description: string;
+  implementedAt: string;
+  tech: string[];
+  inputs: string[];
+  outputs: string[];
+  keyDecisions: string[];
+  resiliencePatterns: string[];
+}
+
 export interface ResumeData {
   personal: {
     name: string;
@@ -42,6 +58,7 @@ export interface ResumeData {
   education: Education[];
   projects: Project[];
   achievements: string[];
+  architectureNodes: ArchitectureNode[];
 }
 
 export const resumeData: ResumeData = {
@@ -129,5 +146,79 @@ export const resumeData: ResumeData = {
   achievements: [
     "Published Author: Co-authored the book Application of Artificial Intelligence in Agriculture (ISBN: 978-620-6-18156-9).",
     "LeetCode Knight Badge: Solved 600+ computational problems, ranking in the top 5% of global users for advanced problem-solving."
+  ],
+  architectureNodes: [
+    {
+      id: 'exp-aeo',
+      name: 'American Eagle Outfitters',
+      category: 'service',
+      protocol: 'Software Engineer I',
+      throughput: 'May 2025 - Present',
+      p99Latency: 'Remote',
+      description: 'Architected an asynchronous appeasement settlement engine and migrated legacy monoliths to scalable Spring Boot microservices.',
+      implementedAt: 'Retail / E-Commerce Backend',
+      tech: ['Java', 'Spring Boot', 'Kafka', 'Debezium', 'GCP Pub/Sub', 'OpenTelemetry', 'PostgreSQL'],
+      inputs: [], outputs: [],
+      keyDecisions: [
+        'Architected an asynchronous appeasement settlement engine utilizing GCP Pub/Sub, achieving 99.9% processing reliability via strict idempotency guarantees.',
+        'Developed an event-driven data pipeline leveraging Apache Kafka, Avro schemas, and Debezium CDC to reliably stream 50,000+ daily events.',
+        'Designed a reusable Spring Boot Error Handling Starter Library and drove platform-wide adoption for standardized API fault responses.'
+      ],
+      resiliencePatterns: ['Event-Driven Arch', 'Monolith to Microservices', 'Centralized Observability']
+    },
+    {
+      id: 'exp-beepkart',
+      name: 'Beepkart',
+      category: 'gateway', 
+      protocol: 'Software Engineer I',
+      throughput: 'Aug 2023 - Apr 2025',
+      p99Latency: 'Bangalore',
+      description: 'Orchestrated complex Temporal workflows, built AI-powered pipelines, and accelerated database queries with Elasticsearch.',
+      implementedAt: 'Automotive Tech / Marketplaces',
+      tech: ['Java', 'Temporal SDK', 'Python', 'Elasticsearch', 'MySQL', 'Dialogflow'],
+      inputs: [], outputs: [],
+      keyDecisions: [
+        'Orchestrated complex, multi-day distributed business workflows using the Temporal SDK in Java, guaranteeing state consistency.',
+        'Optimized database query performance by migrating slow SQL filters to a real-time Elasticsearch index via Debezium (CDC).',
+        'Deployed an automated AI-powered image processing pipeline leveraging Python and PyTorch.'
+      ],
+      resiliencePatterns: ['Distributed Workflows', 'AI Integrations', 'CDC Pipelines']
+    },
+    {
+      id: 'edu-pipeline',
+      name: 'Academic Foundation',
+      category: 'database',
+      protocol: 'MCA & BCA',
+      throughput: '2019 - 2024',
+      p99Latency: 'Top 5%',
+      description: 'Master of Computer Applications from Vellore Institute of Technology (CGPA: 9.58) and Bachelor of Computer Applications from University of Rajasthan.',
+      implementedAt: 'Higher Education',
+      tech: ['Data Structures', 'Algorithms', 'System Design', 'Core Java', 'DBMS'],
+      inputs: [], outputs: [],
+      keyDecisions: [
+        'Specialized in scalable backend architectures and distributed systems during master\'s coursework.',
+        'Maintained top 5% rank in cohort with a 9.58 CGPA at VIT.',
+        'Solved 600+ computational problems on LeetCode, ranking in the top 5% globally.'
+      ],
+      resiliencePatterns: ['Algorithmic Problem Solving', 'Continuous Learning']
+    },
+    {
+      id: 'skills-cloud',
+      name: 'Cloud & Infrastructure Stack',
+      category: 'observability',
+      protocol: 'DevOps & Tooling',
+      throughput: 'Continuous Integration',
+      p99Latency: 'High Availability',
+      description: 'Robust deployment, orchestration, and observability stack used to scale production backend systems and monitor telemetry.',
+      implementedAt: 'System Operations',
+      tech: ['AWS', 'GCP', 'Docker', 'Jenkins', 'Nexus', 'OpenTelemetry', 'New Relic'],
+      inputs: [], outputs: [],
+      keyDecisions: [
+        'Leveraged Docker and cloud platforms (AWS ECS/EC2, GCP GKE) to containerize and scale microservices.',
+        'Streamlined enterprise CI/CD workflows by migrating internal deployment libraries to a centralized Nexus Repository.',
+        'Led fleet-wide infrastructure observability migration from New Relic agents to OpenTelemetry (OTEL).'
+      ],
+      resiliencePatterns: ['Infrastructure as Code', 'Automated CI/CD', 'Telemetry Aggregation']
+    }
   ]
 };

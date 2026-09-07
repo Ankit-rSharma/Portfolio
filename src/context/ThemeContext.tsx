@@ -23,8 +23,6 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
   const setLayoutTheme = (theme: ThemeLayout) => {
     setLayoutThemeState(theme);
     localStorage.setItem('portfolio-layout-theme', theme);
-    // Add a class to body for global style targeting if needed
-    document.body.className = `theme-${theme}`;
   };
 
   return (
