@@ -303,9 +303,8 @@ export const CanvasLayout = () => {
                     <p className="project-desc">
                       {proj.description}
                     </p>
-                    {/* @ts-ignore */}
                     {proj.link && (
-                      <a href={proj.link} target="_blank" className="project-link">
+                      <a href={proj.link} target="_blank" rel="noreferrer" className="project-link">
                         Access Repository <ArrowRight size={12} />
                       </a>
                     )}
